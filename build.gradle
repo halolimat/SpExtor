@@ -1,0 +1,29 @@
+plugins {
+    id 'java'
+}
+
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    // https://mvnrepository.com/artifact/edu.stanford.nlp/stanford-corenlp
+    compile group: 'edu.stanford.nlp', name: 'stanford-corenlp', version: '3.9.1'
+    compile group: 'org.nd4j', name: 'nd4j-native-platform', version: '0.8.0'
+    compile group: 'org.deeplearning4j', name: 'deeplearning4j-nlp', version: '0.8.0'
+    compile group: 'org.deeplearning4j', name: 'deeplearning4j-core', version: '0.8.0'
+    compile group: 'com.massisframework', name: 'j-text-utils', version: '0.3.4'
+
+    // https://mvnrepository.com/artifact/com.google.guava/guava-concurrent
+    compile group: 'com.google.guava', name: 'guava-concurrent', version: 'r03'
+
+    // https://mvnrepository.com/artifact/log4j/log4j
+    compile group: 'log4j', name: 'log4j', version: '1.2.17'
+
+
+}
