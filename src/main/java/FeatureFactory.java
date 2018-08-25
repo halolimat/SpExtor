@@ -99,7 +99,7 @@ public class FeatureFactory {
 
     // #################################################################################################################
 
-    public FeatureFactory(String root_dir){
+    public FeatureFactory(){
 
         // init
         feature_set.add("LF");
@@ -114,14 +114,12 @@ public class FeatureFactory {
         // init WordNet
         try {
             // Download wordnet and make the path points to the dict folder
-            String wordnet_db_path = root_dir+"/wordnet/dict";
+            String wordnet_db_path = FeatureFactory.class.getResource("wordnet/dict").getPath();
             this.wordnet_dt = Dictionary.getFileBackedInstance(wordnet_db_path);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
-
-    public FeatureFactory(){}
 
     // #################################################################################################################
 

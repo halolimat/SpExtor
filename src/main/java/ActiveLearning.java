@@ -6,18 +6,7 @@ import edu.stanford.nlp.pipeline.StanfordCoreNLP;
 import edu.stanford.nlp.stats.Counter;
 import edu.stanford.nlp.stats.Counters;
 
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.*;
-import java.util.stream.Collectors;
-
-import static java.nio.charset.StandardCharsets.UTF_8;
-import static java.nio.file.StandardOpenOption.CREATE;
-import static java.nio.file.StandardOpenOption.TRUNCATE_EXISTING;
 
 public class ActiveLearning {
 
@@ -31,12 +20,9 @@ public class ActiveLearning {
 
     public ActiveLearning(){
         this.props = new Properties();
-        //props.setProperty("annotators", "tokenize");
         props.setProperty("annotators", "tokenize,ssplit,pos,lemma");
         this.pipeline = new StanfordCoreNLP(props);
     }
-
-    // ?????????????????????????????????????????????????????????????????????????????????????????????????????????????????
 
     public double _get_NSE(CRFClassifier<CoreLabel> crf, String str){
 
@@ -47,13 +33,13 @@ public class ActiveLearning {
         // get the list of tokens
         List<CoreLabel> tokens = annotation.get(CoreAnnotations.TokensAnnotation.class);
 
-        // get the k best sequences from your abstract sequence classifier
-        Counter<List<CoreLabel>> kBestSequences = crf.classifyKBest(tokens,
+        // get the n best sequences from your abstract sequence classifier
+        Counter<List<CoreLabel>> nBestSequences = crf.classifyKBest(tokens,
                 CoreAnnotations.NamedEntityTagAnnotation.class,
-                Parameters.n_in_NSE);
+                3);
 
         // sort the k-best examples
-        List<List<CoreLabel>> sortedKBest = Counters.toSortedList(kBestSequences);
+        List<List<CoreLabel>> sortedKBest = Counters.toSortedList(nBestSequences);
 
         double NSE = 0;
 
@@ -62,25 +48,14 @@ public class ActiveLearning {
         for (int i = 0 ; i < sortedKBest.size() ; i ++){
             List<CoreLabel> seq = sortedKBest.get(i);
 
-            // Print token and the tag of it as was assigned in the current sequence (e.g., Hussein/Person)
-            //for (int j = 0 ; j < seq.size() ; j++){
-            //    System.out.print(seq.get(j).word()+"/"+
-            //                     seq.get(j).get(CoreAnnotations.NamedEntityTagAnnotation.class)+" ");
-            //}
-
-            double logProb = kBestSequences.getCount(seq);
+            double logProb = nBestSequences.getCount(seq);
             double prob = Math.exp(logProb);
 
             NSE += logProb * prob;
 
-            //printProbabilities(crf, seq);
-            //System.exit(0);
-
             add_entities_probabilities(NSE, seq);
 
         }
-
-        //System.out.println("\t\t\tNSE" + "\t" + NSE);
 
         // = - sum (.)
         return NSE * -1;
@@ -91,13 +66,6 @@ public class ActiveLearning {
             HashMap<Integer, String> sentences){
 
         all_entities_probabilities = new HashMap<>();
-
-        // If sorted based on entities entropy in sentences
-        if(Parameters.use_ENSE){
-            return get_sentences_sorted_based_on_ense(crf_model, sentences);
-        }
-
-        // Else
 
         HashMap<Integer, Double> sentence_id_nse_map = new HashMap<>();
 
@@ -127,8 +95,6 @@ public class ActiveLearning {
         return list;
     }
 
-    // ??????????????????????????????????????????????
-
     public ArrayList<Double> get_NSE(CRFClassifier<CoreLabel> crf, String str){
 
         StringJoiner sent_temp = new StringJoiner("\t");
@@ -141,32 +107,23 @@ public class ActiveLearning {
         // get the list of tokens
         List<CoreLabel> tokens = annotation.get(CoreAnnotations.TokensAnnotation.class);
 
-        // get the k best sequences from your abstract sequence classifier
-        Counter<List<CoreLabel>> kBestSequences = crf.classifyKBest(tokens,
+        // get the n best sequences from your abstract sequence classifier
+        Counter<List<CoreLabel>> nBestSequences = crf.classifyKBest(tokens,
                 CoreAnnotations.NamedEntityTagAnnotation.class,
-                Parameters.n_in_NSE);
+                3); // 3 here is the n in nSE
 
         // sort the k-best examples
-        List<List<CoreLabel>> sortedKBest = Counters.toSortedList(kBestSequences);
+        List<List<CoreLabel>> sortedKBest = Counters.toSortedList(nBestSequences);
 
         ArrayList<Double> SE = new ArrayList<>();
 
         for (int i = 0 ; i < sortedKBest.size() ; i ++){
             List<CoreLabel> seq = sortedKBest.get(i);
 
-            // Print token and the tag of it as was assigned in the current sequence (e.g., Hussein/Person)
-            //for (int j = 0 ; j < seq.size() ; j++){
-            //    System.out.print(seq.get(j).word()+"/"+
-            //                     seq.get(j).get(CoreAnnotations.NamedEntityTagAnnotation.class)+" ");
-            //}
-
-            double logProb = kBestSequences.getCount(seq);
+            double logProb = nBestSequences.getCount(seq);
             double prob = Math.exp(logProb);
 
             SE.add(logProb * prob);
-
-            //printProbabilities(crf, seq);
-            //System.exit(0);
 
             ArrayList<String> sequence_entities = add_entities_probabilities(logProb * prob, seq);
             sent_temp.add(String.join("--", sequence_entities));
@@ -174,24 +131,6 @@ public class ActiveLearning {
             sent_temp.add(Double.toString(logProb * prob));
 
         }
-
-//        double NSE = SE.stream().mapToDouble(a->a).sum();
-//
-//        sent_temp.add(Double.toString(NSE));
-//
-//
-//        try {
-//            PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter("/home/hussein/Downloads/temp_out.txt", true)));
-//            out.println(sent_temp.toString());
-//            out.close();
-//        } catch (IOException e) {
-//            //exception handling left as an exercise for the reader
-//            e.printStackTrace();
-//            System.exit(0);
-//        }
-
-        // = - sum (.)
-        //return NSE * -1;
 
         return SE;
     }
@@ -201,13 +140,6 @@ public class ActiveLearning {
             HashMap<Integer, String> sentences){
 
         all_entities_probabilities = new HashMap<>();
-
-        // If sorted based on entities entropy in sentences
-//        if(Parameters.use_ENSE){
-//            return get_sentences_sorted_based_on_ense(crf_model, sentences);
-//        }
-
-        // Else
 
         HashMap<Integer, ArrayList<Double>> sentence_id_nse_map = new HashMap<>();
 
@@ -241,7 +173,7 @@ public class ActiveLearning {
     //##################################################################################################################
     //##################################################################################################################
 
-    public double get_ENSE(CRFClassifier<CoreLabel> crf, String str){
+    public double get_ENSE(CRFClassifier<CoreLabel> crf, String str, int n_in_NSE){
 
         // wrap sentence in an Annotation object
         Annotation annotation = new Annotation(str);
@@ -253,7 +185,7 @@ public class ActiveLearning {
         // get the k best sequences from your abstract sequence classifier
         Counter<List<CoreLabel>> kBestSequences = crf.classifyKBest(tokens,
                 CoreAnnotations.NamedEntityTagAnnotation.class,
-                Parameters.n_in_NSE);
+                n_in_NSE);
 
         // sort the k-best examples
         List<List<CoreLabel>> sortedKBest = Counters.toSortedList(kBestSequences);
@@ -266,13 +198,9 @@ public class ActiveLearning {
             double logProb = kBestSequences.getCount(seq);
             double prob = Math.exp(logProb);
 
-            //printProbabilities(crf, seq);
-            //System.exit(0);
-
             StringJoiner entity = new StringJoiner(" ");
             // Print token and the tag of it as was assigned in the current sequence (e.g., Hussein/Person)
             for (int j = 0 ; j < seq.size() ; j++){
-                //System.out.print(seq.get(j).word()+"/"+ seq.get(j).get(CoreAnnotations.NamedEntityTagAnnotation.class)+" ");
                 String word = seq.get(j).word();
                 String tag = seq.get(j).get(CoreAnnotations.NamedEntityTagAnnotation.class);
 
@@ -325,20 +253,14 @@ public class ActiveLearning {
     // Entity N-Sequence Entropy -- https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2586757/
     public List<Map.Entry<Integer, Double>> get_sentences_sorted_based_on_ense(
             CRFClassifier<CoreLabel> crf_model,
-            HashMap<Integer, String> sentences){
+            HashMap<Integer, String> sentences,
+            int n_in_nse){
 
         HashMap<Integer, Double> sentence_id_nse_map = new HashMap<>();
 
         for(int sentence_id: sentences.keySet()){
-            sentence_id_nse_map.put(sentence_id, get_ENSE(crf_model, sentences.get(sentence_id)));
-            //sentence_id_nse_map.put(sentence.getKey(), get_ENSE(crf_model, "I am in New York Airport"));
+            sentence_id_nse_map.put(sentence_id, get_ENSE(crf_model, sentences.get(sentence_id), n_in_nse));
         }
-
-        // sort based on nse then take the top 20 sentences
-
-        //List<Map.Entry<Integer, Double>> sorted = sentence_id_nse_map.entrySet().stream().
-        //        sorted((k2, k1) -> -k1.getValue().compareTo(k2.getValue())).collect(Collectors.toList());
-
 
         Set<Map.Entry<Integer, Double>> set = sentence_id_nse_map.entrySet();
         List<Map.Entry<Integer, Double>> list = new ArrayList<>(set);
@@ -362,7 +284,6 @@ public class ActiveLearning {
         StringJoiner entity = new StringJoiner(" ");
         // Print token and the tag of it as was assigned in the current sequence (e.g., Hussein/Person)
         for (int j = 0 ; j < seq.size() ; j++){
-            //System.out.print(seq.get(j).word()+"/"+ seq.get(j).get(CoreAnnotations.NamedEntityTagAnnotation.class)+" ");
             String word = seq.get(j).word();
             String tag = seq.get(j).get(CoreAnnotations.NamedEntityTagAnnotation.class);
 
@@ -382,7 +303,6 @@ public class ActiveLearning {
 
                     all_entities_probabilities.put(entity_string,
                             all_entities_probabilities.get(entity_string) + SE * -1);
-                    // ---------------------------------------------------------------------------------------------
 
                     entity = new StringJoiner(" ");
                 }
@@ -399,7 +319,6 @@ public class ActiveLearning {
 
             all_entities_probabilities.put(entity_string,
                     all_entities_probabilities.get(entity_string) + SE * -1);
-            // ---------------------------------------------------------------------------------------------
         }
 
         return sequence_entities;

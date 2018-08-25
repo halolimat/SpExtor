@@ -48,16 +48,6 @@ public class EntitySetExpansion {
         return numerator/denominator;
     }
 
-    public double cosine_sim(HashMap<String, Double> v1, HashMap<String, Double> v2){
-        Set<String> both = Sets.newHashSet(v1.keySet());
-        both.retainAll(v2.keySet());
-        double sclar = 0, norm1 = 0, norm2 = 0;
-        for (String k : both) sclar += v1.get(k) * v2.get(k);
-        for (String k : v1.keySet()) norm1 += v1.get(k) * v1.get(k);
-        for (String k : v2.keySet()) norm2 += v2.get(k) * v2.get(k);
-        return sclar / Math.sqrt(norm1 * norm2);
-    }
-
     // #################################################################################################################
 
     private HashMap<String, HashMap<String, Double>> vectorize_nps_features(
@@ -88,7 +78,8 @@ public class EntitySetExpansion {
 
                     if(!nounphrase_feature_vectors.get(np).containsKey(f)){
                         // [0-2] > 0: raw count , 1: tfidf , 2: tfidf_sum
-                        nounphrase_feature_vectors.get(np).put(f, feature_nps_map.get(fn).get(f).get(np)[Parameters.np_features_vector_weights]);
+                        int np_features_vector_weights = 1;
+                        nounphrase_feature_vectors.get(np).put(f, feature_nps_map.get(fn).get(f).get(np)[np_features_vector_weights]);
                     }
                 }
             }
@@ -262,10 +253,7 @@ public class EntitySetExpansion {
 
             HashMap<String, Double> np_fv = nounphrase_feature_vectors.get(np);
 
-            if(Parameters.use_cosine_sim)
-                similarities.put(np, cosine_sim(np_fv, search_term_fv));
-            else
-                similarities.put(np, context_dependent_similarity(np_fv, search_term_fv));
+            similarities.put(np, context_dependent_similarity(np_fv, search_term_fv));
         }
 
         List<Map.Entry<String, Double>> sorted = similarities.entrySet().stream().
@@ -319,14 +307,7 @@ public class EntitySetExpansion {
 
             List<Map.Entry<String, Double>> ranked_sorted_nps;
 
-            if(Parameters.atomic_increment_ranking){
-                ranked_sorted_nps = rank_using_atomicincrement(feature_nps_map);
-            }
-
-            else{
-                ranked_sorted_nps = rank_nps(feature_nps_map, get_fine_features_names(f_set, feature_nps_map), search_term);
-            }
-
+            ranked_sorted_nps = rank_nps(feature_nps_map, get_fine_features_names(f_set, feature_nps_map), search_term);
 
             List<String> ranked_sorted_nps_list = ranked_sorted_nps.stream().map(Map.Entry::getKey).collect(Collectors.toList());
 
@@ -358,17 +339,10 @@ public class EntitySetExpansion {
             for(String fine_grained_feature : feature_nps_map.get(coarse_grained_feature).keySet()){
                 for(String np : feature_nps_map.get(coarse_grained_feature).get(fine_grained_feature).keySet()){
 
-                    // ($*$)
-                    double raw_count = 1;
-
-                    if(Parameters.atomic_increment_ranking_useWeights) {
-                        raw_count = feature_nps_map.get(coarse_grained_feature).get(fine_grained_feature).get(np)[0];
-                    }
-
                     if (!nps_ranked.containsKey(np)) {
-                        nps_ranked.put(np, raw_count);
+                        nps_ranked.put(np, 1.);
                     } else {
-                        nps_ranked.put(np, nps_ranked.get(np) + raw_count);
+                        nps_ranked.put(np, nps_ranked.get(np) + 1);
                     }
                 }
             }
@@ -389,33 +363,8 @@ public class EntitySetExpansion {
 
         HashMap<String, HashMap<String, HashMap<String, Double[]>>> feature_nps_map = get_similar_nps_features(ff, search_term);
 
-        if (Parameters.USE_FEATURES_ENSEMBLE){
-            // rank based on ensambling of feature sets and combining the ranks based on mean reciprocal rank
-            return ensemble_ranking(feature_nps_map, search_term);
-        }
-
-        else{
-
-            // ranking noun phrases using the whole set of features
-
-            List<Map.Entry<String, Double>> ranked_sorted_nps;
-
-            if (Parameters.atomic_increment_ranking) {
-
-                // weighted is a bad idea!!!
-                ranked_sorted_nps = rank_using_atomicincrement(feature_nps_map);
-            }
-
-            else{
-                Set<String> f_set = feature_nps_map.keySet();
-
-                ranked_sorted_nps = rank_nps(feature_nps_map,
-                        get_fine_features_names(f_set, feature_nps_map),
-                        search_term);
-            }
-
-            return ranked_sorted_nps;
-        }
+        // rank based on ensambling of feature sets and combining the ranks based on mean reciprocal rank
+        return ensemble_ranking(feature_nps_map, search_term);
     }
 
     // using ESE for the next step of extractions after finishing saving the model - > outside the pipeline
@@ -454,32 +403,11 @@ public class EntitySetExpansion {
             }
         }
 
-        if (Parameters.USE_FEATURES_ENSEMBLE){
-            // rank based on ensambling of feature sets and combining the ranks based on mean reciprocal rank
-            return ensemble_ranking(feature_nps_map, search_term);
-        }
-
-        else{
-
-            // ranking noun phrases using the whole set of features
-            Set<String> f_set = feature_nps_map.keySet();
-
-            List<Map.Entry<String, Double>> rank_using_feature_embedding = new ArrayList<>();
-
-            /*
-            rank_using_feature_embedding = rank_nps(feature_nps_map,
-                                                    get_fine_features_names(f_set, feature_nps_map),
-                                                    search_term);
-            */
-
-            // weighted is a bad idea!!!
-            rank_using_feature_embedding = rank_using_atomicincrement(feature_nps_map);
-
-            return rank_using_feature_embedding;
-        }
+        // rank based on ensambling of feature sets and combining the ranks based on mean reciprocal rank
+        return ensemble_ranking(feature_nps_map, search_term);
     }
 
-    public List<Map.Entry<Integer, Double>> rank_features_of_entity_set(FeatureFactory ff, Set<String> seed_set, Datasets dataset){
+    public List<Map.Entry<Integer, Double>> rank_features_of_entity_set(FeatureFactory ff, Set<String> seed_set){
 
         HashMap<Integer, Double> rank_sentences = new HashMap<>();
 
@@ -539,7 +467,9 @@ public class EntitySetExpansion {
         return sentences_mrr_sorted;
     }
 
-    public List<Map.Entry<Integer, Double>> sim_rank_features_of_entity_set(FeatureFactory ff, Set<String> seed_set, Datasets dataset){
+    public List<Map.Entry<Integer, Double>> sim_rank_features_of_entity_set(FeatureFactory ff,
+                                                                            Set<String> seed_set,
+                                                                            HashMap<Integer, String> conll_train_sentences){
 
         HashSet<Integer> all_sentences_with_entities_from_set_set = new HashSet<>();
 
@@ -555,7 +485,7 @@ public class EntitySetExpansion {
 
             Set<String> en_sent_features = ff.sentence_features_map.get(en_sent_id);
 
-            for(int sentence_id: dataset.conll_train_sentences.keySet()){
+            for(int sentence_id: conll_train_sentences.keySet()){
                 Set<String> sent_features = ff.sentence_features_map.get(sentence_id);
 
                 if(sent_features == null){
