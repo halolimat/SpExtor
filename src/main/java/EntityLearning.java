@@ -73,10 +73,12 @@ public class EntityLearning {
                                                           Set<String> seed_set,
                                                           FeatureFactory ff,
                                                           int sample_size,
-                                                          double auto_annotation_se_margin) {
+                                                          double auto_annotation_se_margin,
+                                                          String seed_entity) {
 
         // number of docs -> nse
-        HashMap<Integer, Double> evaluation_result = new HashMap<>();
+        List<String> sigma = new ArrayList<>();
+        sigma.add("# Sentences\tSigma");
 
         // annotate sentences with those entities and train a model to start Active Learning
         Set<String> annotated_sentences = new HashSet<>();
@@ -176,7 +178,8 @@ public class EntityLearning {
             List<Map.Entry<Integer, Double>> _sentence_id_nse_map = al._get_sentences_sorted_based_on_nse(first_crf_model, raw_train_sentences);
 
             double average_NSE = _sentence_id_nse_map.stream().mapToDouble(a -> a.getValue()).average().orElse(-1);
-            evaluation_result.put(annotated_sentences_ids.size(), average_NSE);
+
+            sigma.add(Integer.toString(annotated_sentences_ids.size())+ "\t" + Double.toString(1-average_NSE));
         }
 
         // Start Active Learning >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
@@ -298,7 +301,7 @@ public class EntityLearning {
                 List<Map.Entry<Integer, Double>> new_sentence_id_nse_map = al._get_sentences_sorted_based_on_nse(new_crf_model,
                         raw_train_sentences);
                 double average_NSE = new_sentence_id_nse_map.stream().mapToDouble(a -> a.getValue()).average().orElse(-1);
-                evaluation_result.put(annotated_sentences_ids.size(), average_NSE);
+                sigma.add(Integer.toString(annotated_sentences_ids.size())+ "\t" + Double.toString(1-average_NSE));
 
                 // loop
                 annotated_sentences_size = annotated_sentences_ids.size();
@@ -307,29 +310,11 @@ public class EntityLearning {
             e.printStackTrace();
         }
 
-        List<String> output_lines = new ArrayList<>();
-
-        output_lines.add("# Sentences\tPrecision\tRecall\tF-1\tTP\tFP\tFN\tAVG-NSE\tEstimated-Coverage\tSigma");
-
-        // AVG-NSE values should be shifted one row above and the last row should be 0
-        // This is because we don't want to run NSE again after training the model, we just take the value when we
-        // calculate it in the next iteration!
-        for (int number_of_sentences : evaluation_result.keySet()) {
-
-            double sigma = 1-evaluation_result.get(number_of_sentences);
-
-            if (auto_annotation_se_margin > .1)
-                sigma -= auto_annotation_se_margin-sigma;
-
-            output_lines.add( number_of_sentences + "\t" + Double.toString(sigma));
-        }
-
         try {
-            Files.write(Paths.get("Output/" + Double.toString(auto_annotation_se_margin)), output_lines, UTF_8, TRUNCATE_EXISTING, CREATE);
+            Files.write(Paths.get("out/seMargin_" + Double.toString(auto_annotation_se_margin) + "_sampleSize_" + sample_size + "_seeds_" + seed_entity + ".output"), sigma, UTF_8, TRUNCATE_EXISTING, CREATE);
         }
         catch(Exception e){
-            System.out.println("Cannot write to file");
-            System.exit(0);
+            e.printStackTrace();
         }
 
         return new_crf_model;

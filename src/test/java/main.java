@@ -13,16 +13,24 @@ public class main {
     public static double HYPERFAST = 0.15;
     public static double ULTRAFAST = 0.20;
 
-    public static void main(String args[]) throws IOException {
+    static String training_data;
+    static String data_map;
+    static String seed_entity;
+    static int k; // the number of candidate noun phrases from ESE
+    static int batch_size;
+    static double auto_annotation_se_margin;
+    static int sample_size = 0; // size of the sample from the oroginal pool of sentences
 
-        String training_data = "CoNLL_2003_LOC.Train";
-        String data_map = "word=0,pos=1,chunk=2,answer=3";
-        String seed_entity = "Germany";
-        int k = 30; // the number of candidate noun phrases from ESE
-        int sample_size = 100; // the batch size
-        double auto_annotation_se_margin = ZEROMARGIN;
+    private static void start(){
 
-        Dataset ds = new Dataset(main.class.getResource(training_data).getFile(), data_map);
+        Dataset ds;
+
+        // if no size was specified then reach all the sentences from the pool
+        if (sample_size == 0){
+            ds = new Dataset(main.class.getResource(training_data).getFile(), data_map);
+        } else{
+            ds = new Dataset(main.class.getResource(training_data).getFile(), data_map, sample_size);
+        }
 
         EntitySetExpansion ese = new EntitySetExpansion();
 
@@ -30,7 +38,6 @@ public class main {
         ff.featurize(ds.raw_train_sentences);
         System.out.println("Done Featurizing !!!");
 
-        // TODO: make the starting point work with a set
         Set<String> seed_set = new ArraySet<>();
         seed_set.add(seed_entity);
 
@@ -42,12 +49,28 @@ public class main {
         }
 
         EntityLearning el = new EntityLearning();
+
+        // This returns a final CRF model. You can serialize it to your local desk!
         el.start_active_learning(   ds.conll_train_sentences,
                                     ds.raw_train_sentences,
                                     data_map,
                                     seed_set,
                                     ff,
-                                    sample_size,
-                                    auto_annotation_se_margin);
+                                    batch_size,
+                                    auto_annotation_se_margin,
+                                    seed_entity);
+    }
+
+    public static void main(String args[]) throws IOException {
+
+        training_data = "CoNLL_2003_LOC.Train";
+        data_map = "word=0,pos=1,chunk=2,answer=3";
+        seed_entity = "Germany";
+        k = 30;
+        sample_size = 100;
+        auto_annotation_se_margin = ZEROMARGIN;
+        batch_size = 500;
+
+        start();
     }
 }

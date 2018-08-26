@@ -1,6 +1,6 @@
 # SpExtor: Sparse Entity Extractor
 
-This is the implementation of the method in our COLING 2018 paper "A Practical Incremental Learning Framework For Sparse Entity Extraction".
+The implementation of the method in our COLING 2018 paper "A Practical Incremental Learning Framework For Sparse Entity Extraction".
 
 ## Slides
 [COLING 2018 Slides](https://link.hussein.space/SpExtor-Slides)
@@ -28,7 +28,19 @@ Annotated Data mentioned in the paper in addition to many other datasets can be 
             │   └── main.java       : main testing class to run the full code
             │   
             └── resources   : contains the gold training and testing data
-    
+
+## How to use
+
+- Clone SpExtor to your local machine:
+- ```sh 
+    git clone git@github.com:halolimat/SpExtor.git
+    ```
+- Download and install IntelliJ IDEA from [https://www.jetbrains.com/idea/download/](https://www.jetbrains.com/idea/download/)
+- Open IntelliJ, click on open, navigate to where you cloned SpExtor, select the folder SpExtor, hit Open.
+- In the src -> test -> java -> main, modify the parameters as you desire and then run the code.
+- You can serialize the final CRF model from Active Learning.
+- The sigma values over the different batches can be found under SpExtor/out.
+
 ## Citing
 
 If you do make use of SpExtor or any of its components please cite the following publication:

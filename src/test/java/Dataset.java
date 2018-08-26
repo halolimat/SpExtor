@@ -98,6 +98,43 @@ public class Dataset {
         }
     }
 
+    /**
+     * This is for testing to have a subset of the data only
+     * @param abspath
+     * @param data_map
+     * @param size
+     */
+
+    public Dataset(String abspath, String data_map, int size) {
+
+        String conll = get_file_text(abspath, false);
+        String raw = get_file_text(abspath, true);
+
+        // Tokenize to sentences
+        String[] cs = conll.split("\n\n");
+        String[] rs = raw.split("  ");
+
+        assert cs.length == rs.length;
+
+        for(int i = 0 ; i < cs.length ; i++){
+            conll_train_sentences.put(i, cs[i]);
+            raw_train_sentences.put(i, rs[i]);
+
+            if (i >= size-1)
+                break;
+        }
+
+        for(int i = 0 ; i < cs.length ; i++){
+            conll_test_sentences.put(i, cs[i]);
+            raw_test_sentences.put(i, rs[i]);
+
+            if (i >= size-1)
+                break;
+        }
+
+        get_entities_from_train_conll(data_map);
+    }
+
     public Dataset(String abspath, String data_map) {
 
         String conll = get_file_text(abspath, false);
