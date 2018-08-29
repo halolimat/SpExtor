@@ -25,34 +25,34 @@ public class main {
 
         Dataset ds;
 
-        // if no size was specified then reach all the sentences from the pool
+        // if no size was specified then read all the sentences from the pool
         if (sample_size == 0){
             ds = new Dataset(main.class.getResource(training_data).getFile(), data_map);
         } else{
             ds = new Dataset(main.class.getResource(training_data).getFile(), data_map, sample_size);
         }
 
-        EntitySetExpansion ese = new EntitySetExpansion();
-
+        // Extract Noun Phrases and featurize them for the Entity Set Expansion method
         FeatureFactory ff = new FeatureFactory();
-        ff.featurize(ds.raw_train_sentences);
+        ff.featurize(ds.getRaw_train_sentences());
         System.out.println("Done Featurizing !!!");
 
         Set<String> seed_set = new ArraySet<>();
         seed_set.add(seed_entity);
 
+        EntitySetExpansion ese = new EntitySetExpansion();
         List<Map.Entry<String, Double>> entity_set = ese.expand_set(ff, seed_set).subList(0, k);
         // Filter out noun phrases which are not entities - you can get only the top 30 as in the paper.
-        entity_set = entity_set.stream().filter(e -> ds.train_entities.contains(e.getKey())).collect(Collectors.toList());
+        entity_set = entity_set.stream().filter(e -> ds.getTrain_entities().contains(e.getKey())).collect(Collectors.toList());
         for (Map.Entry<String, Double> entity: entity_set){
             seed_set.add(entity.getKey());
         }
 
-        EntityLearning el = new EntityLearning();
+        Core core = new Core();
 
         // This returns a final CRF model. You can serialize it to your local desk!
-        el.start_active_learning(   ds.conll_train_sentences,
-                                    ds.raw_train_sentences,
+        core.start_active_learning( ds.getConll_train_sentences(),
+                                    ds.getRaw_train_sentences(),
                                     data_map,
                                     seed_set,
                                     ff,

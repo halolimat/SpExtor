@@ -13,7 +13,7 @@ import java.nio.file.Paths;
 import java.util.*;
 import java.util.stream.Collectors;
 
-public class EntityLearning {
+public class Core {
 
     public SeqClassifierFlags get_flags(String map) {
 
