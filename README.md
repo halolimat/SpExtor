@@ -15,7 +15,8 @@ Annotated Data mentioned in the paper in addition to many other datasets can be 
         ├── main  
         │   ├── java 
         │   │   ├── ActiveLearning.java       :  implements active learning
-        │   │   ├── EntityLearning.java       :  core code
+        │   │   ├── Core.java                 :  core code
+        │   │   ├── CoreNLPFeaturizer.java    :  Implements an class to use Core NLP NERFeatureFactory
         │   │   ├── EntitySetExpansion.java   :  implementation of the entity set expansion method
         │   │   └── FeatureFactory.java       :  feature factory for the entity set expansion method
         │   │
@@ -24,8 +25,9 @@ Annotated Data mentioned in the paper in addition to many other datasets can be 
         │
         └── test 
             ├── java 
-            │   ├── Dataset.java    : prepares the testing data
-            │   └── main.java       : main testing class to run the full code
+            │   ├── Dataset.java                    : prepares the testing data
+            │   ├── Test_CoreNLPFeaturizer.java     : testing class using CoreNLPFeaturizer which uses Core NLP NERFeatureFactory
+            │   └── Test_SpExtor.java               : main testing class to run SpExtor to learn a model from data
             │   
             └── resources   : contains the gold training and testing data
 
@@ -37,7 +39,7 @@ Annotated Data mentioned in the paper in addition to many other datasets can be 
     ```
 - Download and install IntelliJ IDEA from [https://www.jetbrains.com/idea/download/](https://www.jetbrains.com/idea/download/)
 - Open IntelliJ, click on open, navigate to where you cloned SpExtor, select the folder SpExtor, hit Open.
-- In the src -> test -> java -> main, modify the parameters as you desire and then run the code.
+- In the src -> test -> java -> Test_SpExtor.java, modify the parameters as you desire and then run the code.
 - You can serialize the final CRF model from Active Learning.
 - The sigma values over the different batches can be found under SpExtor/out.
 
