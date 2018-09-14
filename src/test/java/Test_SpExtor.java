@@ -6,7 +6,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-public class main {
+public class Test_SpExtor {
 
     public static double ZEROMARGIN = 0.;
     public static double FAST = 0.1;
@@ -27,9 +27,9 @@ public class main {
 
         // if no size was specified then read all the sentences from the pool
         if (sample_size == 0){
-            ds = new Dataset(main.class.getResource(training_data).getFile(), data_map);
+            ds = new Dataset(Test_SpExtor.class.getResource(training_data).getFile(), data_map);
         } else{
-            ds = new Dataset(main.class.getResource(training_data).getFile(), data_map, sample_size);
+            ds = new Dataset(Test_SpExtor.class.getResource(training_data).getFile(), data_map, sample_size);
         }
 
         // Extract Noun Phrases and featurize them for the Entity Set Expansion method
