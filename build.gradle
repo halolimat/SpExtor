@@ -33,5 +33,11 @@ dependencies {
 
     // https://mvnrepository.com/artifact/org.slf4j/slf4j-simple
     testCompile group: 'org.slf4j', name: 'slf4j-simple', version: '1.7.25'
+}
 
+task run (type: JavaExec){
+    description = "executing!!!"
+    main = 'helpers.CoreNLPFeaturizer'
+    classpath = sourceSets.main.runtimeClasspath
+    args = ["$conll_text"]
 }
