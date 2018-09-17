@@ -1,71 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="33ca7d53-1ad3-4c86-9421-36752ca0c960" name="Default Changelist" comment="Add CoreNLPFeaturizer using NERFeatureFactory">
+    <list default="true" id="33ca7d53-1ad3-4c86-9421-36752ca0c960" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.gradle/4.9/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.9/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.9/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.9/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/resources/wordnet/dict/Makefile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/resources/wordnet/dict/Makefile.am" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/resources/wordnet/dict/Makefile.in" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/resources/wordnet/dict/adj.exc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/resources/wordnet/dict/adv.exc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/resources/wordnet/dict/cntlist" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/resources/wordnet/dict/cntlist.rev" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/resources/wordnet/dict/data.adj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/resources/wordnet/dict/data.adv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/resources/wordnet/dict/data.noun" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/resources/wordnet/dict/data.verb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/resources/wordnet/dict/frames.vrb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/resources/wordnet/dict/index.adj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/resources/wordnet/dict/index.adv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/resources/wordnet/dict/index.noun" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/resources/wordnet/dict/index.sense" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/resources/wordnet/dict/index.verb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/resources/wordnet/dict/lexnames" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/resources/wordnet/dict/log.grind.3.0" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/resources/wordnet/dict/noun.exc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/resources/wordnet/dict/sentidx.vrb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/resources/wordnet/dict/sents.vrb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/resources/wordnet/dict/verb.Framestext" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/resources/wordnet/dict/verb.exc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/resources/CoNLL_2003_LOC.TestA" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/resources/CoNLL_2003_LOC.Train" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ActiveLearning.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/spExtor/ActiveLearning.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Core.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/spExtor/Core.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/CoreNLPFeaturizer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/helpers/CoreNLPFeaturizer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/EntitySetExpansion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/spExtor/EntitySetExpansion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/FeatureFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/spExtor/FeatureFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/wordnet/dict/Makefile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/wordnet/dict/Makefile.am" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/wordnet/dict/Makefile.in" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/wordnet/dict/adj.exc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/wordnet/dict/adv.exc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/wordnet/dict/cntlist" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/wordnet/dict/cntlist.rev" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/wordnet/dict/data.adj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/wordnet/dict/data.adv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/wordnet/dict/data.noun" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/wordnet/dict/data.verb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/wordnet/dict/frames.vrb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/wordnet/dict/index.adj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/wordnet/dict/index.adv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/wordnet/dict/index.noun" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/wordnet/dict/index.sense" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/wordnet/dict/index.verb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/wordnet/dict/lexnames" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/wordnet/dict/log.grind.3.0" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/wordnet/dict/noun.exc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/wordnet/dict/sentidx.vrb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/wordnet/dict/sents.vrb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/wordnet/dict/verb.Framestext" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/wordnet/dict/verb.exc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Dataset.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/spExtor/Dataset.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Test_CoreNLPFeaturizer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/helpers/Test_CoreNLPFeaturizer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Test_SpExtor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/spExtor/Test_SpExtor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/CoNLL_2003_LOC.TestA" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/spExtor/CoNLL_2003_LOC.TestA" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/CoNLL_2003_LOC.Train" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/spExtor/CoNLL_2003_LOC.Train" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -90,7 +29,7 @@
     <session id="1379932561">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="8" />
+          <entry key="project.closed" value="9" />
           <entry key="project.open.time.1" value="5" />
           <entry key="project.open.time.2" value="1" />
           <entry key="project.open.time.3" value="1" />
@@ -126,7 +65,7 @@
           <entry key="gradle" value="131" />
           <entry key="java" value="5762" />
           <entry key="md" value="915" />
-          <entry key="txt" value="93" />
+          <entry key="txt" value="165" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
@@ -134,7 +73,7 @@
           <entry key="Groovy" value="131" />
           <entry key="JAVA" value="5762" />
           <entry key="Markdown" value="915" />
-          <entry key="PLAIN_TEXT" value="119" />
+          <entry key="PLAIN_TEXT" value="191" />
         </counts>
       </usages-collector>
     </session>
@@ -1038,7 +977,7 @@
       <workItem from="1535253032414" duration="996000" />
       <workItem from="1535560438689" duration="6280000" />
       <workItem from="1536696890378" duration="17850000" />
-      <workItem from="1536968004795" duration="3639000" />
+      <workItem from="1536968004795" duration="3864000" />
     </task>
     <task id="LOCAL-00001" summary="Rename SpExtor test class">
       <created>1536959130579</created>
@@ -1054,11 +993,18 @@
       <option name="project" value="LOCAL" />
       <updated>1536959354077</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Refactoring, cleaning, and fixes for the FeatureFactory&quot;">
+      <created>1536975398739</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1536975398739</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="35958000" />
+    <option name="totallyTimeSpent" value="36183000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1072,7 +1018,7 @@
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21173105" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21173105" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
@@ -1085,7 +1031,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32961586" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="8" visible="true" weight="0.3283767" />
+      <window_info anchor="bottom" id="Terminal" order="8" visible="true" weight="0.3283767" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="10" weight="0.32872927" />
       <window_info anchor="bottom" id="Build" order="11" weight="0.3283767" />
@@ -1110,7 +1056,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Rename SpExtor test class" />
     <MESSAGE value="Add CoreNLPFeaturizer using NERFeatureFactory" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add CoreNLPFeaturizer using NERFeatureFactory" />
+    <MESSAGE value="Refactoring, cleaning, and fixes for the FeatureFactory&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactoring, cleaning, and fixes for the FeatureFactory&quot;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
