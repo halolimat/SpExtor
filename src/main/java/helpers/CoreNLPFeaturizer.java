@@ -2,7 +2,6 @@ package helpers;
 
 import edu.stanford.nlp.ie.crf.CRFClassifier;
 import edu.stanford.nlp.ie.crf.CRFDatum;
-import edu.stanford.nlp.ie.crf.CRFFeatureExporter;
 import edu.stanford.nlp.ie.crf.CRFLabel;
 import edu.stanford.nlp.ling.CoreAnnotations;
 import edu.stanford.nlp.ling.CoreLabel;
@@ -16,8 +15,6 @@ class Featurizer extends CRFClassifier {
 
     private char delimiter = '\t';
     private static final String eol = System.lineSeparator();
-
-    private CRFFeatureExporter<CoreLabel> featureExporter;
 
     private static String ubPrefixFeatureString(String feat)
     {
@@ -65,8 +62,6 @@ class Featurizer extends CRFClassifier {
 
     public Featurizer(CRFClassifier<CoreLabel> crf){
         super(crf.flags);
-
-        this.featureExporter = new CRFFeatureExporter<>(this);
     }
 
     /**
@@ -147,16 +142,9 @@ public class CoreNLPFeaturizer{
 
     public static void main(String[] args){
 
-        //args = new String[]{"I O\nam O\nin O\nJordan LOC\n"};
-
-        if (args.length == 0){
-            System.out.println("You should provide CoNLL formatted text to be featurized");
-            System.exit(0);
-        }
-
-        args[0] = String.join("\n", args[0].split("\\*"));
+        String test = "I O\nam O\nin O\nJordan LOC\n";
 
         CoreNLPFeaturizer f = new CoreNLPFeaturizer();
-        System.out.println(f.featurizer.extractFeatures(args[0]));
+        System.out.println(f.featurizer.extractFeatures(test));
     }
 }
