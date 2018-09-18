@@ -2,8 +2,8 @@
 
 The implementation of the method in our COLING 2018 paper "A Practical Incremental Learning Framework For Sparse Entity Extraction".
 
-## Slides
-[COLING 2018 Slides](https://link.hussein.space/SpExtor-Slides)
+## Resources
+[Paper](http://aclweb.org/anthology/C18-1059) and [Slides](https://link.hussein.space/SpExtor-Slides)
 
 ## Data
 Annotated Data mentioned in the paper in addition to many other datasets can be downloaded from [This Link](http://link.hussein.space/NERData).
