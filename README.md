@@ -48,7 +48,7 @@ Annotated Data mentioned in the paper in addition to many other datasets can be 
 If you do make use of SpExtor or any of its components please cite the following publication:
 
     Hussein S. Al-Olimat, Steven Gustafson, Jason Mackay, Krishnaprasad Thirunarayan, and Amit Sheth. 2018. 
-    A practical incremental learning framework for sparse entity extraction. In Proceedings of the 27th Internationl
+    A practical incremental learning framework for sparse entity extraction. In Proceedings of the 27th International
     Conference on Computational Linguistics (COLING 2018), pages 700–710. Association for Computational Linguistics.
     
     @InProceedings{C18-1059,
