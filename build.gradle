@@ -23,7 +23,7 @@ dependencies {
     compile group: 'com.massisframework', name: 'j-text-utils', version: '0.3.4'
 
     // https://mvnrepository.com/artifact/com.google.guava/guava-concurrent
-    compile group: 'com.google.guava', name: 'guava-concurrent', version: 'r03'
+    compile group: 'com.google.guava', name: 'guava', version: '14.0'
 
     // https://mvnrepository.com/artifact/log4j/log4j
     compile group: 'log4j', name: 'log4j', version: '1.2.17'
@@ -44,7 +44,7 @@ dependencies {
 
 task run (type: JavaExec){
     description = "executing!!!"
-    main = 'helpers.CoreNLPFeaturizer'
+    main = 'helpers.FeaturizerServer'
     classpath = sourceSets.main.runtimeClasspath
     //args = ["$conll_text"]
 }
