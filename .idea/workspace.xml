@@ -2,12 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="33ca7d53-1ad3-4c86-9421-36752ca0c960" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/helpers/FeaturizerServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.9/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.9/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.9/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.9/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/helpers/CoreNLPFeaturizer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/helpers/CoreNLPFeaturizer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/helpers/FeaturizerServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/helpers/FeaturizerServer.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -49,21 +46,23 @@
     <session id="1379932561">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="9" />
+          <entry key="project.closed" value="12" />
           <entry key="project.open.time.1" value="5" />
+          <entry key="project.open.time.11" value="1" />
           <entry key="project.open.time.13" value="1" />
+          <entry key="project.open.time.14" value="1" />
           <entry key="project.open.time.2" value="1" />
-          <entry key="project.open.time.3" value="1" />
+          <entry key="project.open.time.3" value="2" />
           <entry key="project.open.time.5" value="1" />
           <entry key="project.open.time.9" value="1" />
-          <entry key="project.opened" value="10" />
+          <entry key="project.opened" value="13" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="0" value="4" />
           <entry key="gradle" value="7" />
-          <entry key="java" value="89" />
+          <entry key="java" value="92" />
           <entry key="md" value="2" />
           <entry key="output" value="2" />
           <entry key="txt" value="1" />
@@ -74,7 +73,7 @@
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="Groovy" value="7" />
-          <entry key="JAVA" value="89" />
+          <entry key="JAVA" value="92" />
           <entry key="Markdown" value="2" />
           <entry key="PLAIN_TEXT" value="8" />
           <entry key="XML" value="1" />
@@ -84,7 +83,7 @@
         <counts>
           <entry key="dummy" value="26" />
           <entry key="gradle" value="152" />
-          <entry key="java" value="6184" />
+          <entry key="java" value="6247" />
           <entry key="md" value="915" />
           <entry key="txt" value="165" />
         </counts>
@@ -92,7 +91,7 @@
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="Groovy" value="152" />
-          <entry key="JAVA" value="6184" />
+          <entry key="JAVA" value="6247" />
           <entry key="Markdown" value="915" />
           <entry key="PLAIN_TEXT" value="191" />
         </counts>
@@ -101,14 +100,22 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/helpers/FeaturizerServer.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="225">
+              <caret line="15" column="1" selection-start-line="15" selection-start-column="1" selection-end-line="15" selection-end-column="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/helpers/CoreNLPFeaturizer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="3" column="40" selection-start-line="3" selection-start-column="40" selection-end-line="3" selection-end-column="40" />
+            <state relative-caret-position="-35">
+              <caret line="100" column="8" selection-start-line="100" selection-start-column="8" selection-end-line="100" selection-end-column="8" />
               <folding>
-                <element signature="e#2161#2162#0" expanded="true" />
-                <element signature="e#2193#2194#0" expanded="true" />
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -125,7 +132,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>evaluation_result</find>
       <find>concat</find>
       <find>stream</find>
       <find>seed_set</find>
@@ -155,6 +161,7 @@
       <find>nounphrase_id_dict</find>
       <find>numFeatures</find>
       <find>featureExporter</find>
+      <find>LLLLL</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -851,8 +858,8 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -967,8 +974,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.CoreNLPFeaturizer (1)" />
-        <item itemvalue="Application.Featurizer" />
         <item itemvalue="Application.FeaturizerServer" />
+        <item itemvalue="Application.Featurizer" />
         <item itemvalue="Application.HelloWorldService" />
         <item itemvalue="Application.Test_CoreNLPFeaturizer (1)" />
       </list>
@@ -993,7 +1000,10 @@
       <workItem from="1535560438689" duration="6280000" />
       <workItem from="1536696890378" duration="17850000" />
       <workItem from="1536968004795" duration="3864000" />
-      <workItem from="1537223320843" duration="5970000" />
+      <workItem from="1537223320843" duration="6158000" />
+      <workItem from="1537287343936" duration="163000" />
+      <workItem from="1542382842368" duration="356000" />
+      <workItem from="1542754929512" duration="1414000" />
     </task>
     <task id="LOCAL-00001" summary="Rename SpExtor test class">
       <created>1536959130579</created>
@@ -1020,7 +1030,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="42153000" />
+    <option name="totallyTimeSpent" value="44274000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1033,14 +1043,12 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21459228" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22317597" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
       <window_info id="Favorites" order="4" side_tool="true" />
-      <window_info anchor="bottom" id="Java Enterprise" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3283767" />
       <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.2998761" />
@@ -1054,6 +1062,7 @@
       <window_info anchor="bottom" id="Version Control" order="10" weight="0.32872927" />
       <window_info anchor="bottom" id="Build" order="11" weight="0.3283767" />
       <window_info anchor="bottom" id="Messages" order="12" weight="0.3283767" />
+      <window_info anchor="bottom" id="Java Enterprise" order="13" />
       <window_info anchor="right" id="Coverage" order="0" side_tool="true" weight="0.3297568" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="1" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="2" weight="0.25" />
@@ -1260,13 +1269,6 @@
     <entry file="file://$USER_HOME$/Downloads/RESTfulExample/src/main/java/com/mkyong/rest/JSONService.java">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/helpers/FeaturizerServer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="5" lean-forward="true" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="353">
@@ -1274,13 +1276,19 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/helpers/FeaturizerServer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="1" selection-start-line="15" selection-start-column="1" selection-end-line="15" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/helpers/CoreNLPFeaturizer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="40" selection-start-line="3" selection-start-column="40" selection-end-line="3" selection-end-column="40" />
+        <state relative-caret-position="-35">
+          <caret line="100" column="8" selection-start-line="100" selection-start-column="8" selection-end-line="100" selection-end-column="8" />
           <folding>
-            <element signature="e#2161#2162#0" expanded="true" />
-            <element signature="e#2193#2194#0" expanded="true" />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>

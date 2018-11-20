@@ -91,43 +91,43 @@ public class CoreNLPFeaturizer{
     private SeqClassifierFlags get_flags() {
 
         SeqClassifierFlags flags = new SeqClassifierFlags();
-        flags.wordFunction = new AmericanizeFunction();
+        //flags.wordFunction = new AmericanizeFunction();
         //flags.useDistSim=true;
         //flags.distSimLexicon="/u/nlp/data/pos_tags_are_useless/egw4-reut.512.clusters";
-        flags.numberEquivalenceDistSim = true;
-        flags.unknownWordDistSimClass = "0";
+        //flags.numberEquivalenceDistSim = true;
+        //flags.unknownWordDistSimClass = "0";
         // This is the default mapping of the CoNLL formatted strings
         flags.map = "word=0,answer=1";
         flags.saveFeatureIndexToDisk = false;
         flags.useTitle = true;
-        flags.useClassFeature = true;
+        //flags.useClassFeature = true;
         flags.useWord = true;
-        flags.useNGrams = true;
+        //flags.useNGrams = true;
         flags.noMidNGrams = true;
         flags.usePrev = true;
         flags.useNext = true;
-        flags.useLongSequences = true;
-        flags.useSequences = true;
+        //flags.useLongSequences = true;
+        //flags.useSequences = true;
         flags.usePrevSequences = true;
         flags.maxLeft = 1;
         flags.useTypeSeqs = true;
         flags.useTypeSeqs2 = true;
         flags.useTypeySequences = true;
         flags.useOccurrencePatterns = true;
-        flags.useLastRealWord = true;
-        flags.useNextRealWord = true;
-        flags.normalize = true;
+        //flags.useLastRealWord = true;
+        //flags.useNextRealWord = true;
+        //flags.normalize = true;
         flags.wordShape = 3; //dan2useLC
         flags.useDisjunctive = true;
         flags.disjunctionWidth = 4;
-        flags.type = "crf";
-        flags.readerAndWriter = "edu.stanford.nlp.sequences.ColumnDocumentReaderAndWriter";
-        flags.useObservedSequencesOnly = true;
-        flags.sigma = 20;
-        flags.useQN = true;
-        flags.QNsize = 25;
+        //flags.type = "crf";
+        //flags.readerAndWriter = "edu.stanford.nlp.sequences.ColumnDocumentReaderAndWriter";
+        //flags.useObservedSequencesOnly = true;
+        //flags.sigma = 20;
+        //flags.useQN = true;
+        //flags.QNsize = 25;
         // makes it go faster
-        flags.featureDiffThresh = 0.05;
+        //flags.featureDiffThresh = 0.05;
 
         return flags;
     }
