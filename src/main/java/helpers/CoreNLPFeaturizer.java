@@ -82,6 +82,22 @@ class Featurizer extends CRFClassifier {
 
         return result.stream().collect(Collectors.joining("\n"));
     }
+
+    public String extractFeatures_raw_string (String string) {
+
+        string=string.replace(" ", " O\n")+" O";
+
+        Collection<List<CoreLabel>> docs = this.makeObjectBankFromString(string, this.defaultReaderAndWriter());
+        this.makeAnswerArraysAndTagIndex(docs);
+
+        List<String> result = new ArrayList<>();
+
+        for (List<CoreLabel> doc :docs) {
+            result.add(getFeatureString(doc));
+        }
+
+        return result.stream().collect(Collectors.joining("\n"));
+    }
 }
 
 public class CoreNLPFeaturizer{
@@ -133,18 +149,15 @@ public class CoreNLPFeaturizer{
     }
 
     public CoreNLPFeaturizer(){
-
         // This is using the default formatted CoNLL strings - word at 0 and answer at 1
         CRFClassifier<CoreLabel> crf = new CRFClassifier<>(get_flags());
-
         this.featurizer = new Featurizer(crf);
     }
 
     public static void main(String[] args){
-
         String test = "I O\nam O\nin O\nJordan LOC\n";
-
         CoreNLPFeaturizer f = new CoreNLPFeaturizer();
         System.out.println(f.featurizer.extractFeatures(test));
+        System.out.println(f.featurizer.extractFeatures_raw_string("I am in Jordan ."));
     }
 }
