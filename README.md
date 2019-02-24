@@ -43,6 +43,15 @@ Annotated Data mentioned in the paper in addition to many other datasets can be 
 - You can serialize the final CRF model from Active Learning.
 - The sigma values over the different batches can be found under SpExtor/out.
 
+## Licenses ##
+
+This work is licensed under GPL-3.0 and CreativesForGood licenses. A copy of the first license can be found in this repository. The other license can be found over this link [C4G License](https://github.com/halolimat/CreativesForGoodLicense).
+
+<p float="left">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/9/93/GPLv3_Logo.svg" alt="GPLv3 Logo" width="60" />
+  <img src="https://github.com/halolimat/CreativesForGoodLicense/raw/master/CreativesForGoodLogo2.png" alt="CreativesForGood Logo" width="120" style="margin-left: 10px;" /> 
+</p>
+
 ## Citing
 
 If you do make use of SpExtor or any of its components please cite the following publication:
