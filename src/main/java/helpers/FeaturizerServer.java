@@ -12,9 +12,9 @@ public class FeaturizerServer {
             String is_raw = req.queryParams("is_raw");
 
             if (is_raw.toLowerCase().equals("true"))
-                return  f.featurizer.extractFeatures_raw_string(sentence);
+                return  f.featurizer.extractFeatures(sentence, "raw");
             else
-                return  f.featurizer.extractFeatures(sentence);
+                return  f.featurizer.extractFeatures(sentence, "conll");
         });
     }
 }

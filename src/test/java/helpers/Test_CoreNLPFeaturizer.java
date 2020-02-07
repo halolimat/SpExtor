@@ -33,7 +33,7 @@ public class Test_CoreNLPFeaturizer {
 
         CoreNLPFeaturizer cf = new CoreNLPFeaturizer();
 
-        String features_tsv = cf.featurizer.extractFeatures(doc);
+        String features_tsv = cf.featurizer.extractFeatures(doc, "conll");
 
         System.out.println(features_tsv);
     }

@@ -5,9 +5,11 @@ import edu.stanford.nlp.ie.crf.CRFDatum;
 import edu.stanford.nlp.ie.crf.CRFLabel;
 import edu.stanford.nlp.ling.CoreAnnotations;
 import edu.stanford.nlp.ling.CoreLabel;
-import edu.stanford.nlp.process.AmericanizeFunction;
+import edu.stanford.nlp.process.CoreLabelTokenFactory;
 import edu.stanford.nlp.sequences.SeqClassifierFlags;
+import edu.stanford.nlp.process.PTBTokenizer;
 
+import java.io.StringReader;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -60,34 +62,28 @@ class Featurizer extends CRFClassifier {
         return sb.toString();
     }
 
-    public Featurizer(CRFClassifier<CoreLabel> crf){
-        super(crf.flags);
-    }
+    public Featurizer(CRFClassifier<CoreLabel> crf){ super(crf.flags);}
 
     /**
      *  Extracts features for a given CoNLL formatted string
      *
      * @return a tsv string where each token is in its line.
      */
-    public String extractFeatures (String conll_string) {
+    public String extractFeatures (String sentence, String text_type) {
 
-        Collection<List<CoreLabel>> docs = this.makeObjectBankFromString(conll_string, this.defaultReaderAndWriter());
-        this.makeAnswerArraysAndTagIndex(docs);
+        assert text_type.equals("conll") || text_type.equals("raw");
 
-        List<String> result = new ArrayList<>();
+        if (!text_type.equals("conll")){
+            PTBTokenizer<CoreLabel> ptbt = new PTBTokenizer<>(new StringReader(sentence), new CoreLabelTokenFactory(),"");
+            List<String> sent_conll = new ArrayList<>();
+            while (ptbt.hasNext()) {
+                sent_conll.add(ptbt.next() +"\t"+"O");
+            }
 
-        for (List<CoreLabel> doc :docs) {
-            result.add(getFeatureString(doc));
+            sentence=sent_conll.stream().collect(Collectors.joining("\n"));
         }
 
-        return result.stream().collect(Collectors.joining("\n"));
-    }
-
-    public String extractFeatures_raw_string (String string) {
-
-        string=string.replace(" ", " O\n")+" O";
-
-        Collection<List<CoreLabel>> docs = this.makeObjectBankFromString(string, this.defaultReaderAndWriter());
+        Collection<List<CoreLabel>> docs = this.makeObjectBankFromString(sentence, this.defaultReaderAndWriter());
         this.makeAnswerArraysAndTagIndex(docs);
 
         List<String> result = new ArrayList<>();
@@ -157,7 +153,7 @@ public class CoreNLPFeaturizer{
     public static void main(String[] args){
         String test = "I O\nam O\nin O\nJordan LOC\n";
         CoreNLPFeaturizer f = new CoreNLPFeaturizer();
-        System.out.println(f.featurizer.extractFeatures(test));
-        System.out.println(f.featurizer.extractFeatures_raw_string("I am in Jordan ."));
+        System.out.println(f.featurizer.extractFeatures(test, "conll"));
+        System.out.println(f.featurizer.extractFeatures("I am in Jordan .", "raw"));
     }
 }
