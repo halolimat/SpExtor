@@ -2,27 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="33ca7d53-1ad3-4c86-9421-36752ca0c960" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/helpers/HelperServer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/helpers/NegationDetection.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/helpers/Test_NegationDetector.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.9/fileChanges/last-build.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.9/fileContent/fileContent.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.9/fileHashes/fileHashes.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.9/fileHashes/fileHashes.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.9/fileHashes/resourceHashesCache.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.9/taskHistory/taskHistory.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.9/taskHistory/taskHistory.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/fileContent/fileContent.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/fileContent/fileContent.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/classAnalysis.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/javaCompile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/test/CoNLL_2003_LOC.TestA" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/test/CoNLL_2003_LOC.Train" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/helpers/CoreNLPFeaturizer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/helpers/CoreNLPFeaturizer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/helpers/FeaturizerServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/helpers/FeaturizerServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/helpers/Test_CoreNLPFeaturizer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/helpers/Test_CoreNLPFeaturizer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/helpers/HelperServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/helpers/HelperServer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -388,9 +377,9 @@
       <recent name="$PROJECT_DIR$/src/test/java/spExtor" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Test_NegationDetector">
-    <configuration name="CoreNLPFeaturizer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="helpers.CoreNLPFeaturizer" />
+  <component name="RunManager" selected="Application.HelperServer">
+    <configuration name="FeaturizerServer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="helpers.FeaturizerServer" />
       <module name="SpExtor_main" />
       <extension name="coverage">
         <pattern>
@@ -402,8 +391,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="FeaturizerServer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="helpers.FeaturizerServer" />
+    <configuration name="HelperServer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="helpers.HelperServer" />
       <module name="SpExtor_main" />
       <extension name="coverage">
         <pattern>
@@ -455,19 +444,19 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.CoreNLPFeaturizer (1)" />
       <item itemvalue="Application.FeaturizerServer" />
       <item itemvalue="Application.NegationDetection" />
       <item itemvalue="Application.Test_NegationDetector" />
       <item itemvalue="Application.Test_CoreNLPFeaturizer" />
+      <item itemvalue="Application.HelperServer" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.HelperServer" />
         <item itemvalue="Application.Test_CoreNLPFeaturizer" />
         <item itemvalue="Application.Test_NegationDetector" />
         <item itemvalue="Application.NegationDetection" />
         <item itemvalue="Application.FeaturizerServer" />
-        <item itemvalue="Application.CoreNLPFeaturizer (1)" />
       </list>
     </recent_temporary>
   </component>
@@ -496,7 +485,7 @@
       <workItem from="1542754929512" duration="1503000" />
       <workItem from="1548046811199" duration="948000" />
       <workItem from="1580159988446" duration="629000" />
-      <workItem from="1581105260811" duration="4294000" />
+      <workItem from="1581105260811" duration="5299000" />
     </task>
     <task id="LOCAL-00001" summary="Rename SpExtor test class">
       <created>1536959130579</created>
@@ -545,22 +534,26 @@
       <screen x="1792" y="23" width="1920" height="1057" />
     </state>
     <state x="2540" y="418" width="423" height="276" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/1792.23.1920.1057/0.23.1792.1097@1792.23.1920.1057" timestamp="1581106413328" />
-    <state width="1878" height="290" key="GridCell.Tab.0.bottom" timestamp="1581119215409">
-      <screen x="1792" y="23" width="1920" height="1057" />
+    <state width="1750" height="290" key="GridCell.Tab.0.bottom" timestamp="1581129774417">
+      <screen x="0" y="23" width="1792" height="1097" />
     </state>
-    <state width="1878" height="290" key="GridCell.Tab.0.bottom/1792.23.1920.1057/0.23.1792.1097@1792.23.1920.1057" timestamp="1581119215409" />
-    <state width="1878" height="290" key="GridCell.Tab.0.center" timestamp="1581119215409">
-      <screen x="1792" y="23" width="1920" height="1057" />
+    <state width="1750" height="290" key="GridCell.Tab.0.bottom/0.23.1792.1097@0.23.1792.1097" timestamp="1581129774417" />
+    <state width="1878" height="290" key="GridCell.Tab.0.bottom/1792.23.1920.1057/0.23.1792.1097@1792.23.1920.1057" timestamp="1581119262729" />
+    <state width="1750" height="290" key="GridCell.Tab.0.center" timestamp="1581129774416">
+      <screen x="0" y="23" width="1792" height="1097" />
     </state>
-    <state width="1878" height="290" key="GridCell.Tab.0.center/1792.23.1920.1057/0.23.1792.1097@1792.23.1920.1057" timestamp="1581119215409" />
-    <state width="1878" height="290" key="GridCell.Tab.0.left" timestamp="1581119215408">
-      <screen x="1792" y="23" width="1920" height="1057" />
+    <state width="1750" height="290" key="GridCell.Tab.0.center/0.23.1792.1097@0.23.1792.1097" timestamp="1581129774416" />
+    <state width="1878" height="290" key="GridCell.Tab.0.center/1792.23.1920.1057/0.23.1792.1097@1792.23.1920.1057" timestamp="1581119262728" />
+    <state width="1750" height="290" key="GridCell.Tab.0.left" timestamp="1581129774416">
+      <screen x="0" y="23" width="1792" height="1097" />
     </state>
-    <state width="1878" height="290" key="GridCell.Tab.0.left/1792.23.1920.1057/0.23.1792.1097@1792.23.1920.1057" timestamp="1581119215408" />
-    <state width="1878" height="290" key="GridCell.Tab.0.right" timestamp="1581119215409">
-      <screen x="1792" y="23" width="1920" height="1057" />
+    <state width="1750" height="290" key="GridCell.Tab.0.left/0.23.1792.1097@0.23.1792.1097" timestamp="1581129774416" />
+    <state width="1878" height="290" key="GridCell.Tab.0.left/1792.23.1920.1057/0.23.1792.1097@1792.23.1920.1057" timestamp="1581119262727" />
+    <state width="1750" height="290" key="GridCell.Tab.0.right" timestamp="1581129774417">
+      <screen x="0" y="23" width="1792" height="1097" />
     </state>
-    <state width="1878" height="290" key="GridCell.Tab.0.right/1792.23.1920.1057/0.23.1792.1097@1792.23.1920.1057" timestamp="1581119215409" />
+    <state width="1750" height="290" key="GridCell.Tab.0.right/0.23.1792.1097@0.23.1792.1097" timestamp="1581129774417" />
+    <state width="1878" height="290" key="GridCell.Tab.0.right/1792.23.1920.1057/0.23.1792.1097@1792.23.1920.1057" timestamp="1581119262728" />
     <state x="2374" y="360" key="com.intellij.ide.util.TipDialog" timestamp="1580159992330">
       <screen x="1792" y="23" width="1920" height="1057" />
     </state>
