@@ -8,12 +8,12 @@ import edu.stanford.nlp.naturalli.NaturalLogicAnnotations;
 import java.util.*;
 import java.util.stream.Collectors;
 
-public class NegationDetection {
+public class PolarityAnnoation {
 
     private Properties props;
     private StanfordCoreNLP pipeline;
 
-    public NegationDetection(){
+    public PolarityAnnoation(){
         // set up pipeline properties
         props = new Properties();
         // set the list of annotators to run
@@ -22,7 +22,8 @@ public class NegationDetection {
         pipeline = new StanfordCoreNLP(props);
     }
 
-    public String get_negations(String sentence, boolean is_raw){
+    public String get_polarityAnnotation(String sentence, boolean is_raw){
+        // Read about it here: https://link.springer.com/article/10.1007/BF00413602 and https://nlp.stanford.edu/projects/natlog.shtml
 
         if (!is_raw){
             ArrayList<String> str = new ArrayList<>();

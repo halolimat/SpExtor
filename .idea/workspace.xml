@@ -11,7 +11,10 @@
       <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/javaCompile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/helpers/HelperServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/helpers/HelperServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/helpers/NegationDetection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/helpers/PolarityAnnoation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/helpers/Test_NegationDetector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/helpers/Test_PolarityAnnotator.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -485,7 +488,7 @@
       <workItem from="1542754929512" duration="1503000" />
       <workItem from="1548046811199" duration="948000" />
       <workItem from="1580159988446" duration="629000" />
-      <workItem from="1581105260811" duration="5299000" />
+      <workItem from="1581105260811" duration="6340000" />
     </task>
     <task id="LOCAL-00001" summary="Rename SpExtor test class">
       <created>1536959130579</created>
@@ -534,25 +537,25 @@
       <screen x="1792" y="23" width="1920" height="1057" />
     </state>
     <state x="2540" y="418" width="423" height="276" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/1792.23.1920.1057/0.23.1792.1097@1792.23.1920.1057" timestamp="1581106413328" />
-    <state width="1750" height="290" key="GridCell.Tab.0.bottom" timestamp="1581129774417">
+    <state width="1750" height="290" key="GridCell.Tab.0.bottom" timestamp="1581129926448">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
-    <state width="1750" height="290" key="GridCell.Tab.0.bottom/0.23.1792.1097@0.23.1792.1097" timestamp="1581129774417" />
+    <state width="1750" height="290" key="GridCell.Tab.0.bottom/0.23.1792.1097@0.23.1792.1097" timestamp="1581129926448" />
     <state width="1878" height="290" key="GridCell.Tab.0.bottom/1792.23.1920.1057/0.23.1792.1097@1792.23.1920.1057" timestamp="1581119262729" />
-    <state width="1750" height="290" key="GridCell.Tab.0.center" timestamp="1581129774416">
+    <state width="1750" height="290" key="GridCell.Tab.0.center" timestamp="1581129926448">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
-    <state width="1750" height="290" key="GridCell.Tab.0.center/0.23.1792.1097@0.23.1792.1097" timestamp="1581129774416" />
+    <state width="1750" height="290" key="GridCell.Tab.0.center/0.23.1792.1097@0.23.1792.1097" timestamp="1581129926448" />
     <state width="1878" height="290" key="GridCell.Tab.0.center/1792.23.1920.1057/0.23.1792.1097@1792.23.1920.1057" timestamp="1581119262728" />
-    <state width="1750" height="290" key="GridCell.Tab.0.left" timestamp="1581129774416">
+    <state width="1750" height="290" key="GridCell.Tab.0.left" timestamp="1581129926447">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
-    <state width="1750" height="290" key="GridCell.Tab.0.left/0.23.1792.1097@0.23.1792.1097" timestamp="1581129774416" />
+    <state width="1750" height="290" key="GridCell.Tab.0.left/0.23.1792.1097@0.23.1792.1097" timestamp="1581129926447" />
     <state width="1878" height="290" key="GridCell.Tab.0.left/1792.23.1920.1057/0.23.1792.1097@1792.23.1920.1057" timestamp="1581119262727" />
-    <state width="1750" height="290" key="GridCell.Tab.0.right" timestamp="1581129774417">
+    <state width="1750" height="290" key="GridCell.Tab.0.right" timestamp="1581129926448">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
-    <state width="1750" height="290" key="GridCell.Tab.0.right/0.23.1792.1097@0.23.1792.1097" timestamp="1581129774417" />
+    <state width="1750" height="290" key="GridCell.Tab.0.right/0.23.1792.1097@0.23.1792.1097" timestamp="1581129926448" />
     <state width="1878" height="290" key="GridCell.Tab.0.right/1792.23.1920.1057/0.23.1792.1097@1792.23.1920.1057" timestamp="1581119262728" />
     <state x="2374" y="360" key="com.intellij.ide.util.TipDialog" timestamp="1580159992330">
       <screen x="1792" y="23" width="1920" height="1057" />

@@ -48,3 +48,10 @@ task run (type: JavaExec){
     classpath = sourceSets.main.runtimeClasspath
     //args = ["$conll_text"]
 }
+
+task runSpExtorService (type: JavaExec){
+    description = "executing!!!"
+    main = 'helpers.HelperServer'
+    classpath = sourceSets.main.runtimeClasspath
+    //args = ["$conll_text"]
+}
